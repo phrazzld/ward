@@ -1,0 +1,17 @@
+-   id: ward-check
+    name: Ward code review
+    description: Performs code review
+    entry: ward_check.sh
+    language: script
+    pass_filenames: false
+    stages: [commit-msg]
+    always_run: false  # Skip in non-interactive/CI environments
+
+-   id: ward-log
+    name: Ward log processor
+    description: Updates warnings log with commit hash
+    entry: ward_log.sh
+    language: script
+    pass_filenames: false
+    stages: [post-commit]
+    always_run: false  # Skip in non-interactive/CI environments
