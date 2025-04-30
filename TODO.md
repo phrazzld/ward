@@ -25,7 +25,7 @@
     - **Done-when:** The update command completes successfully.
     - **Depends-on:** T037
 
-- [ ] **T039 · Chore · P2: Verify the updated golangci-lint version**
+- [x] **T039 · Chore · P2: Verify the updated golangci-lint version**
     - **Context:** Step 1 from `CONSULTANT-PLAN.md`. Confirm that the update performed in T038 was successful and the `golangci-lint` command now executes the newly installed version.
     - **Action:** Run `golangci-lint --version` again in the project directory.
     - **Done-when:** The output confirms a recent version of `golangci-lint` (e.g., v1.5x.y or newer) is now installed and accessible via the command line.
