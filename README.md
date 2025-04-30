@@ -7,7 +7,7 @@ Pre-commit hooks for integrating code review into your Git workflow.
 - Automated code review before each commit
 - Logs warnings and failures with correlation IDs
 - Post-commit updating of log entries with actual commit hashes
-- Analysis tool for reviewing warnings and failures
+- Structured log for warnings and failures
 
 ## Installation
 
@@ -43,20 +43,9 @@ Once installed, the hooks will run automatically:
 - `ward-check`: Runs before each commit is created
 - `ward-log`: Runs after each commit to update log entries
 
-### Log Analysis
+### Logs
 
-Use the included analysis script to review warnings and failures:
-
-```
-./ward_analyze.sh --help
-```
-
-Options:
-- `--list`: List all entries
-- `-c HASH`: Show details for a specific commit
-- `-s STATUS`: Filter by status (WARN, FAIL)
-- `-b BRANCH`: Filter by branch
-- `--summary`: Show summary statistics
+Warnings and failures are automatically logged with structured data including correlation IDs, commit hashes, and timestamps. You can review these logs directly or use standard Unix tools to analyze them.
 
 ## Configuration
 

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Install**: `pip install pre-commit && pre-commit install --hook-type commit-msg --hook-type post-commit`
 - **Lint**: `pre-commit run --all-files`
 - **Test scripts**: `bash ./claude_sanity_check.sh` or `bash ./claude_post_commit.sh`
-- **Analyze logs**: `./analyze-claude-warnings.sh --list` or `./analyze-claude-warnings.sh --summary`
+- **Check logs**: Use standard Unix tools to analyze `.ward-warnings.log`
 
 ## Style Guidelines
 - **Shell Scripts**: Use `bash` shebang, error handling with traps, strict mode (`set -eo pipefail`)

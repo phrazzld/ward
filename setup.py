@@ -9,8 +9,7 @@ setup(
     py_modules=[],
     scripts=[
         "ward_check.sh", 
-        "ward_log.sh", 
-        "ward_analyze.sh"
+        "ward_log.sh"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
