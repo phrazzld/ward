@@ -13,15 +13,56 @@
         1. Run `go build ./...` without errors.
     - **Depends-on:** none
 
-- [ ] **T002 · Chore · P2: configure golangci-lint**
-    - **Context:** Detailed Build Step 1
-    - **Action:**
-        1. Add `.golangci.yml` with strict linter settings.
-        2. Update project README/Makefile to include `golangci-lint run`.
-    - **Done-when:**
-        1. `.golangci.yml` is present.
-        2. `golangci-lint run` exits 0 on an empty codebase.
+- [x] **T037 · Chore · P2: Verify current golangci-lint version**
+    - **Context:** Step 1 from `CONSULTANT-PLAN.md`. The current `golangci-lint` version (reported as v2.1.1) predates the modern configuration schema (v2) and is causing `unsupported version` errors. We need to confirm the installed version before updating.
+    - **Action:** Open a terminal in the project directory (`/Users/phaedrus/Development/ward/`) and run `golangci-lint --version`. Record the output.
+    - **Done-when:** The output of the command, showing the installed `golangci-lint` version, is known and recorded.
     - **Depends-on:** T001
+
+- [ ] **T038 · Chore · P2: Update golangci-lint to the latest stable version**
+    - **Context:** Step 1 from `CONSULTANT-PLAN.md`. The current version is too old. Updating to a recent stable version (>= v1.50.0) is necessary for compatibility with the required configuration schema and to benefit from bug fixes and new linters. The plan recommends using `go install`.
+    - **Action:** Execute the command `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest` to install or update `golangci-lint` to the latest stable version available via Go's tooling. Alternatively, use the appropriate package manager command if installed differently (e.g., `brew upgrade golangci-lint`).
+    - **Done-when:** The update command completes successfully.
+    - **Depends-on:** T037
+
+- [ ] **T039 · Chore · P2: Verify the updated golangci-lint version**
+    - **Context:** Step 1 from `CONSULTANT-PLAN.md`. Confirm that the update performed in T038 was successful and the `golangci-lint` command now executes the newly installed version.
+    - **Action:** Run `golangci-lint --version` again in the project directory.
+    - **Done-when:** The output confirms a recent version of `golangci-lint` (e.g., v1.5x.y or newer) is now installed and accessible via the command line.
+    - **Depends-on:** T038
+
+- [ ] **T040 · Chore · P2: Create the initial .golangci.yml configuration file**
+    - **Context:** Step 2 from `CONSULTANT-PLAN.md`. A configuration file (`.golangci.yml`) using the `version: "2"` schema is required to define the linters and settings for the project, replacing the incompatible older format.
+    - **Action:** Create a file named `.golangci.yml` in the project root directory (`/Users/phaedrus/Development/ward/`). Paste the complete YAML content provided in `CONSULTANT-PLAN.md` (starting with `version: "2"`) into this file.
+    - **Done-when:** The `.golangci.yml` file exists in the project root, contains the base configuration from the plan, and is saved.
+    - **Depends-on:** T039
+
+- [ ] **T041 · Chore · P2: Customize .golangci.yml with project-specific details**
+    - **Context:** Step 2 from `CONSULTANT-PLAN.md`. The base `.golangci.yml` configuration contains placeholders that must be tailored to the specific project (`ward`). Specifically, the Go version and the local module path prefix need to be set correctly.
+    - **Action:** Edit the `.golangci.yml` file:
+        1. Update the `go:` value under the `run:` section to match the Go version specified in the project's `go.mod` file (e.g., `go: '1.22'`).
+        2. Update the `local-prefixes:` value under `linters-settings.goimports:` to match the project's module path found in `go.mod` (e.g., `local-prefixes: github.com/phaedrus-io/ward`).
+        3. Add and commit the `.golangci.yml` file to version control.
+    - **Done-when:** The `go:` version and `local-prefixes:` in `.golangci.yml` accurately reflect the project's `go.mod` file, and the configuration file is committed to the repository.
+    - **Depends-on:** T040
+
+- [ ] **T042 · Chore · P2: Run golangci-lint to validate configuration and initial state**
+    - **Context:** Step 3 from `CONSULTANT-PLAN.md`. After creating and customizing the configuration, verify that the updated `golangci-lint` tool can parse the `.golangci.yml` file correctly and execute without configuration errors on the existing codebase.
+    - **Action:** Navigate to the project root directory (`/Users/phaedrus/Development/ward/`) in the terminal and run `golangci-lint run ./...`.
+    - **Done-when:** The command completes successfully (exit code 0) without reporting any configuration parsing errors (the `unsupported version` error must be resolved). Ideally, it reports no linting violations given the strict config and likely minimal codebase, but the primary goal here is config validation.
+    - **Depends-on:** T041
+
+- [ ] **T043 · Documentation · P3: Add linting instructions to README.md**
+    - **Context:** Step 4 from `CONSULTANT-PLAN.md` and the project's development philosophy emphasize documenting tooling setup. This ensures developers know how to install and run the linter locally.
+    - **Action:** Edit the project's `README.md` file. Add a "Linting" subsection under a "Development" or similar section, including the markdown content provided in Step 4 of `CONSULTANT-PLAN.md`. Ensure it clearly explains the tool (`golangci-lint`), the configuration file (`.golangci.yml`), how to install/check the version, and the command to run it (`golangci-lint run ./...`). Commit the changes.
+    - **Done-when:** `README.md` contains a clear and accurate "Linting" section detailing the setup and local execution instructions, and the changes are committed.
+    - **Depends-on:** T042
+
+- [ ] **T044 · Meta · P3: Mark original task T002 as completed**
+    - **Context:** The work originally scoped in task T002 (`configure golangci-lint`) has been fully decomposed into and addressed by tasks T037 through T043 based on the detailed `CONSULTANT-PLAN.md`.
+    - **Action:** Edit the `TODO.md` file. Locate the line for task `T002 · Chore · P2: configure golangci-lint`. Change its status marker from `[ ]` (or `[~]`) to `[x]`. Commit the updated `TODO.md`.
+    - **Done-when:** Task T002 in `TODO.md` is marked as completed `[x]`.
+    - **Depends-on:** T043
 
 - [ ] **T003 · Chore · P2: create Makefile for common tasks**
     - **Context:** Detailed Build Step 1
