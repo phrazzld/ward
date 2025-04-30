@@ -19,7 +19,7 @@
     - **Done-when:** The output of the command, showing the installed `golangci-lint` version, is known and recorded.
     - **Depends-on:** T001
 
-- [ ] **T038 · Chore · P2: Update golangci-lint to the latest stable version**
+- [x] **T038 · Chore · P2: Update golangci-lint to the latest stable version**
     - **Context:** Step 1 from `CONSULTANT-PLAN.md`. The current version is too old. Updating to a recent stable version (>= v1.50.0) is necessary for compatibility with the required configuration schema and to benefit from bug fixes and new linters. The plan recommends using `go install`.
     - **Action:** Execute the command `go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest` to install or update `golangci-lint` to the latest stable version available via Go's tooling. Alternatively, use the appropriate package manager command if installed differently (e.g., `brew upgrade golangci-lint`).
     - **Done-when:** The update command completes successfully.
