@@ -31,7 +31,7 @@
     - **Done-when:** The output confirms a recent version of `golangci-lint` (e.g., v1.5x.y or newer) is now installed and accessible via the command line.
     - **Depends-on:** T038
 
-- [ ] **T040 · Chore · P2: Create the initial .golangci.yml configuration file**
+- [x] **T040 · Chore · P2: Create the initial .golangci.yml configuration file**
     - **Context:** Step 2 from `CONSULTANT-PLAN.md`. A configuration file (`.golangci.yml`) using the `version: "2"` schema is required to define the linters and settings for the project, replacing the incompatible older format.
     - **Action:** Create a file named `.golangci.yml` in the project root directory (`/Users/phaedrus/Development/ward/`). Paste the complete YAML content provided in `CONSULTANT-PLAN.md` (starting with `version: "2"`) into this file.
     - **Done-when:** The `.golangci.yml` file exists in the project root, contains the base configuration from the plan, and is saved.
