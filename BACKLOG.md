@@ -1,0 +1,22 @@
+# BACKLOG
+
+- remove ward analyze
+- completely refactor ward to go
+- set up pre-commit framework and github actions ci
+   - file length
+   - function length
+   - complexity
+   - running this program `ward` of course
+   - tests
+   - linter
+   - build
+- set up proper versioning / tagging system
+- Deliver Ward as a manager-agnostic CLI binary that installs optional shims, never dictates a hook framework.
+   - Distribute static binaries (linux-x64, darwin-arm64, etc.) plus an npx ward-cli wrapper and a Homebrew tap.
+   - ward check | ward log remain the single, authoritative execution surface—usable in hooks, CI, or ad-hoc.
+   - ward init --manager <husky|pre-commit|lefthook|raw> generates a 10-line shim, refusing to overwrite existing hook scripts.
+   - Provide ready-made snippets for Husky (.husky/pre-commit, .husky/post-commit), pre-commit (.pre-commit-config.yaml), Lefthook (lefthook.yml), and direct .git/hooks/ usage.
+   - Keep all logic inside Ward; shims are dumb wrappers—no duplicated validation paths, no ecosystem lock-in, zero future migration cost.
+- generalize the log file. it should log even on pass, just a checkmark or some confirmation that it ran and lgtm'd
+- no reason `claude` has to be the llm powering this thing -- open it up to arbitrary providers, and even arbitrary councils of providers (thinktank w/synthesis?)
+- make dev philosophy sanity check reference configurable
