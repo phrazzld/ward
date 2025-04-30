@@ -37,7 +37,7 @@
     - **Done-when:** The `.golangci.yml` file exists in the project root, contains the base configuration from the plan, and is saved.
     - **Depends-on:** T039
 
-- [ ] **T041 · Chore · P2: Customize .golangci.yml with project-specific details**
+- [x] **T041 · Chore · P2: Customize .golangci.yml with project-specific details**
     - **Context:** Step 2 from `CONSULTANT-PLAN.md`. The base `.golangci.yml` configuration contains placeholders that must be tailored to the specific project (`ward`). Specifically, the Go version and the local module path prefix need to be set correctly.
     - **Action:** Edit the `.golangci.yml` file:
         1. Update the `go:` value under the `run:` section to match the Go version specified in the project's `go.mod` file (e.g., `go: '1.22'`).
