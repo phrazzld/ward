@@ -1,6 +1,5 @@
 # BACKLOG
 
-- remove ward analyze
 - completely refactor ward to go
 - set up pre-commit framework and github actions ci
    - file length
