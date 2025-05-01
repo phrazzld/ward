@@ -74,7 +74,7 @@
     - **Depends-on:** T001
 
 ## internal/types
-- [ ] **T004 · Chore · P2: define shared types**
+- [x] **T004 · Chore · P2: define shared types**
     - **Context:** Detailed Build Step 2
     - **Action:**
         1. Create `internal/types` package.
