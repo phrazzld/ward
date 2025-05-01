@@ -29,3 +29,9 @@ MANIFEST
 
 # Log files
 .claude-warnings.log
+**/.claude/settings.local.json
+
+# Build and local configuration files
+/bin/
+lint_output.json
+.config/
