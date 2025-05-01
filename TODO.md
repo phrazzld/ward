@@ -233,7 +233,7 @@
     - **Depends-on:** T014
 
 ## internal/config
-- [ ] **T012 · Feature · P2: implement config loader**
+- [x] **T012 · Feature · P2: implement config loader**
     - **Context:** Detailed Build Step 5
     - **Action:**
         1. Read env vars into `Config` struct.
