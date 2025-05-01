@@ -52,7 +52,7 @@
     - **Done-when:** The command completes successfully (exit code 0) without reporting any configuration parsing errors (the `unsupported version` error must be resolved). Ideally, it reports no linting violations given the strict config and likely minimal codebase, but the primary goal here is config validation.
     - **Depends-on:** T041
 
-- [ ] **T043 · Documentation · P3: Add linting instructions to README.md**
+- [x] **T043 · Documentation · P3: Add linting instructions to README.md**
     - **Context:** Step 4 from `CONSULTANT-PLAN.md` and the project's development philosophy emphasize documenting tooling setup. This ensures developers know how to install and run the linter locally.
     - **Action:** Edit the project's `README.md` file. Add a "Linting" subsection under a "Development" or similar section, including the markdown content provided in Step 4 of `CONSULTANT-PLAN.md`. Ensure it clearly explains the tool (`golangci-lint`), the configuration file (`.golangci.yml`), how to install/check the version, and the command to run it (`golangci-lint run ./...`). Commit the changes.
     - **Done-when:** `README.md` contains a clear and accurate "Linting" section detailing the setup and local execution instructions, and the changes are committed.

@@ -56,6 +56,41 @@ The hooks automatically skip in CI environments. No additional configuration is 
 Warnings and failures are logged to `.ward-warnings.log` in your project root.
 Add this file to your `.gitignore` to prevent accidental commits.
 
+## Development
+
+### Linting
+
+The project uses [golangci-lint](https://github.com/golangci/golangci-lint) for static code analysis and style enforcement:
+
+1. **Installation**:
+   ```bash
+   # Install with go install (recommended)
+   go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
+   # Or with Homebrew
+   brew install golangci-lint
+   ```
+
+2. **Verify installation**:
+   ```bash
+   golangci-lint --version
+   # Should output at least v1.50.0 or newer
+   ```
+
+3. **Configuration**:
+   A pre-configured `.golangci.yml` file is included in the repository root. This configuration:
+   - Sets strict linting rules
+   - Disables formatters that are better used separately
+   - Enforces project-specific standards
+
+4. **Running the linter**:
+   ```bash
+   # Run in the project root
+   golangci-lint run ./...
+   ```
+
+All code contributions must pass linting checks. The `.golangci.yml` configuration should not be modified to suppress warnings - instead, fix the underlying issues.
+
 ## License
 
 MIT
