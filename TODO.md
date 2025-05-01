@@ -242,7 +242,7 @@
         1. Loader fails on invalid/missing vars.
     - **Depends-on:** T004, T005
 
-- [ ] **T013 · Test · P2: add unit tests for config loader**
+- [x] **T013 · Test · P2: add unit tests for config loader**
     - **Context:** Detailed Build Step 5
     - **Action:**
         1. Mock env for valid and invalid cases.
