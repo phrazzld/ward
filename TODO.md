@@ -123,7 +123,7 @@
     - **Depends-on:** T018
 
 ## internal/llm
-- [ ] **T007 · Chore · P2: define llm.Client interface**
+- [x] **T007 · Chore · P2: define llm.Client interface**
     - **Context:** Detailed Build Step 4
     - **Action:**
         1. Create `internal/llm/client.go`.
