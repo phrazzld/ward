@@ -270,7 +270,7 @@
     - **Depends-on:** T016
 
 ## internal/core
-- [ ] **T011 · Chore · P2: define core interfaces**
+- [x] **T011 · Chore · P2: define core interfaces**
     - **Context:** Detailed Build Step 4
     - **Action:**
         1. Create `internal/core/interfaces.go`.
