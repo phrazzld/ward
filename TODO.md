@@ -207,7 +207,7 @@
     - **Depends-on:** T024
 
 ## internal/ci
-- [ ] **T010 · Chore · P2: define ci.Detector interface**
+- [x] **T010 · Chore · P2: define ci.Detector interface**
     - **Context:** Detailed Build Step 4
     - **Action:**
         1. Create `internal/ci/detector.go`.
