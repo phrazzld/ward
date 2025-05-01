@@ -1,47 +1,30 @@
-# /Users/phaedrus/Development/ward/.golangci.yml
+version: 2
 
-# REQUIRED: Specifies the configuration file format version.
-version: "2"
-
-# Configure runtime behavior
 run:
-  # Set analysis timeout. 5m is usually sufficient.
   timeout: 5m
-  # Analyze test files as well.
   tests: true
-  # Specify the Go version matching your go.mod file.
   go: '1.24.2'
 
-# Configure linters and their settings
 linters-settings:
   gocyclo:
-    # Set the cyclomatic complexity threshold per DEVELOPMENT_PHILOSOPHY_APPENDIX_GO.md
     min-complexity: 15
   goimports:
-    # Specify local package prefixes for correct import grouping.
     local-prefixes: github.com/phrazzld/ward
   govet:
-    # Enable shadowing checks for variable scope issues.
     check-shadowing: true
   nolintlint:
-    # Enforce the "no nolint" rule strictly.
-    allow-unused: false       # Report unused nolint directives.
-    allow-leading-space: true # Allow '//nolint: ...' format.
-    require-explanation: true # Require explanations (though they shouldn't be used).
-    require-specific: true    # Require specific linters in nolint directives.
+    allow-unused: false
+    allow-leading-space: true
+    require-explanation: true
+    require-specific: true
   stylecheck:
-    # Enforce specific style checks (e.g., ST1003 for initialisms).
-    # Start with 'all', disable specific checks if they conflict with project style.
     checks: ["all"]
   forbidigo:
-    # Forbid specific function calls (e.g., encourage structured logging).
     forbid:
-      - '^fmt\.Print.*$' # Discourage direct printing to stdout/stderr.
+      - '^fmt\.Print.*$' # Discourage direct printing to stdout/stderr
 
 linters:
-  # Disable all linters by default to ensure only explicitly chosen ones run.
   disable-all: true
-  # Enable a curated list of linters based on strictness and common Go practices.
   enable:
     # Core & Essential
     - errcheck        # Checks for unchecked errors.
@@ -54,37 +37,28 @@ linters:
     - gocritic        # Provides opinionated style/performance checks.
 
     # Complexity & Readability
-    - gocyclo         # Checks cyclomatic complexity (configured above).
+    - gocyclo         # Checks cyclomatic complexity.
     - gocognit        # Checks cognitive complexity.
     - nakedret        # Reports naked returns (often discouraged).
 
     # Correctness & Robustness
     - bodyclose       # Checks for unclosed response bodies.
     - durationcheck   # Detects improper duration comparisons/multiplication.
-    - makezero        # Checks for `make` calls with zero length that could be `nil`.
+    - makezero        # Checks for `make` calls with zero length.
     - sqlclosecheck   # Checks for unclosed `sql.Rows`.
     - unconvert       # Detects unnecessary type conversions.
     - unparam         # Checks for unused function parameters/results.
-    - errorlint       # Checks for proper error wrapping (`fmt.Errorf` with `%w`).
+    - errorlint       # Checks for proper error wrapping.
     - prealloc        # Finds slice/map allocations that could be pre-allocated.
 
     # Best Practices & Maintenance
-    - nolintlint      # Validates `//nolint` directives (configured above).
-    - misspell        # Checks for common misspellings in comments/strings.
-    - whitespace      # Detects trailing whitespace and other issues.
+    - nolintlint      # Validates `//nolint` directives.
+    - misspell        # Checks for common misspellings.
+    - whitespace      # Detects trailing whitespace.
     - wastedassign    # Checks for assignments where the value is never used.
-    # - forbidigo     # Enforces forbidden function calls (configured above). # Uncomment if using forbidigo settings
+    - forbidigo       # Enforces forbidden function calls.
 
-# Configure issue reporting
 issues:
-  # Do not use the default set of issue exclusions. Be strict.
   exclude-use-default: false
-  # Fail the build if *any* issue is found by any linter. This enforces the strict requirement.
   max-issues-per-linter: 0
   max-same-issues: 0
-  # Define exclusions only if absolutely necessary and document why.
-  # Example:
-  # exclude-rules:
-  #   - path: _test\.go
-  #     linters:
-  #       - funlen # Allow longer functions in tests sometimes

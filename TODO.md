@@ -216,7 +216,7 @@
         1. Interface compiles.
     - **Depends-on:** T005
 
-- [ ] **T014 · Feature · P2: implement ci.Detector**
+- [x] **T014 · Feature · P2: implement ci.Detector**
     - **Context:** Detailed Build Step 6
     - **Action:**
         1. Detect CI via `CI` or `GITHUB_ACTIONS` env vars.
@@ -224,7 +224,7 @@
         1. `IsCI()` returns correct values.
     - **Depends-on:** T010
 
-- [ ] **T015 · Test · P2: add unit tests for ci.Detector**
+- [x] **T015 · Test · P2: add unit tests for ci.Detector**
     - **Context:** Detailed Build Step 6
     - **Action:**
         1. Set/unset env vars to exercise both branches.
@@ -260,7 +260,7 @@
         1. Functions available and documented.
     - **Depends-on:** T005
 
-- [ ] **T017 · Test · P2: add unit tests for util**
+- [x] **T017 · Test · P2: add unit tests for util**
     - **Context:** Detailed Build Step 7
     - **Action:**
         1. Test correlation ID format.

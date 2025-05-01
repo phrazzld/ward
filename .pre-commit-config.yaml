@@ -1,0 +1,102 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+      - id: check-merge-conflict
+
+# Temporarily disable golangci-lint until compatibility issues are resolved
+#  - repo: https://github.com/golangci/golangci-lint
+#    rev: v1.56.1
+#    hooks:
+#      - id: golangci-lint
+#        args: [--timeout=5m]
+
+  - repo: local
+    hooks:
+      # Run Go tests
+      - id: go-test
+        name: go test
+        description: Run go tests
+        entry: go test ./...
+        language: system
+        types: [go]
+        pass_filenames: false
+
+      # File length check
+      - id: file-length-check
+        name: file length check
+        description: Check file length
+        entry: |
+          bash -c '
+          for file in "$@"; do
+            lines=$(wc -l < "$file")
+            if [ "$lines" -gt 1000 ]; then
+              echo "ERROR: $file has $lines lines (max 1000)"
+              exit 1
+            elif [ "$lines" -gt 500 ]; then
+              echo "WARNING: $file has $lines lines (recommended max 500)"
+            fi
+          done
+          '
+        language: system
+        types: [go]
+
+      # Cyclomatic complexity check
+      - id: go-cyclo
+        name: go cyclomatic complexity check
+        description: Check cyclomatic complexity
+        entry: |
+          bash -c '
+          if ! command -v gocyclo &> /dev/null; then
+            echo "gocyclo not installed. Install with: go install github.com/fzipp/gocyclo/cmd/gocyclo@latest"
+            exit 1
+          fi
+          complexity=$(gocyclo -over 15 "$@" | wc -l)
+          if [ "$complexity" -gt 0 ]; then
+            gocyclo -over 15 "$@"
+            exit 1
+          fi
+          '
+        language: system
+        types: [go]
+        require_serial: true
+
+      # Go build check
+      - id: go-build
+        name: go build
+        description: Check if the project builds
+        entry: go build ./...
+        language: system
+        types: [go]
+        pass_filenames: false
+
+      # Forbid direct fmt.Print* usage
+      - id: no-fmt-print
+        name: no fmt.Print
+        description: Ensure no fmt.Print* usage (use structured logging)
+        entry: |
+          bash -c '
+          if grep -r "fmt\\.Print" --include="*.go" "$@" | grep -v "_test.go"; then
+            echo "Error: fmt.Print* found in non-test Go files. Use structured logging instead."
+            exit 1
+          fi
+          '
+        language: system
+        types: [go]
+        exclude: '_test\.go$'
+
+  # Custom post-commit hook for running glance
+  - repo: local
+    hooks:
+      - id: run-glance
+        name: run glance
+        description: Run glance command after commit
+        entry: bash -c 'nohup glance ./ > /dev/null 2>&1 &'
+        language: system
+        stages: [post-commit]
+        pass_filenames: false
