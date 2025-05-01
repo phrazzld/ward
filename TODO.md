@@ -251,7 +251,7 @@
     - **Depends-on:** T012
 
 ## internal/util
-- [ ] **T016 · Feature · P2: implement util package**
+- [x] **T016 · Feature · P2: implement util package**
     - **Context:** Detailed Build Step 7
     - **Action:**
         1. Add UUID correlation ID generator.
