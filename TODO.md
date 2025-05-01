@@ -151,7 +151,7 @@
     - **Depends-on:** T020
 
 ## internal/log
-- [ ] **T008 · Chore · P2: define log.Writer interface**
+- [x] **T008 · Chore · P2: define log.Writer interface**
     - **Context:** Detailed Build Step 4
     - **Action:**
         1. Create `internal/log/writer.go`.
