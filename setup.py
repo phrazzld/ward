@@ -8,7 +8,7 @@ setup(
     author_email="phrazzld@pm.me",
     py_modules=[],
     scripts=[
-        "ward_check.sh", 
+        "ward_check.sh",
         "ward_log.sh"
     ],
     classifiers=[
