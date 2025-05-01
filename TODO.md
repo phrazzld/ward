@@ -103,7 +103,7 @@
         1. Interface compiles.
     - **Depends-on:** T005
 
-- [ ] **T018 · Feature · P2: implement git.Client adapter using util exec wrapper**
+- [x] **T018 · Feature · P2: implement git.Client adapter using util exec wrapper**
     - **Context:** Detailed Build Step 8
     - **Action:**
         1. Use `internal/util` exec wrapper to call Git CLI.
