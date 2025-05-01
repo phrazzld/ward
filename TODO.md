@@ -94,7 +94,7 @@
     - **Depends-on:** T001
 
 ## internal/git
-- [ ] **T006 · Chore · P2: define git.Client interface**
+- [x] **T006 · Chore · P2: define git.Client interface**
     - **Context:** Detailed Build Step 4
     - **Action:**
         1. Create `internal/git/client.go`.
