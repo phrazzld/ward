@@ -84,7 +84,7 @@
     - **Depends-on:** T001
 
 ## internal/errors
-- [ ] **T005 · Chore · P2: define sentinel errors**
+- [x] **T005 · Chore · P2: define sentinel errors**
     - **Context:** Detailed Build Step 3
     - **Action:**
         1. Create `internal/errors` package.
