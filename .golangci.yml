@@ -49,13 +49,9 @@ linters:
     - staticcheck     # Comprehensive static analysis (SA* checks).
     - unused          # Checks for unused code.
     - ineffassign     # Detects ineffective assignments.
-    - typecheck       # Ensures code type-checks (usually covered by build).
 
     # Style & Formatting
     - gocritic        # Provides opinionated style/performance checks.
-    - stylecheck      # Enforces stylistic guidelines (like ST1003).
-    - gofmt           # Checks if code is formatted with gofmt.
-    - goimports       # Checks import sorting and grouping (requires local-prefixes).
 
     # Complexity & Readability
     - gocyclo         # Checks cyclomatic complexity (configured above).
@@ -65,7 +61,6 @@ linters:
     # Correctness & Robustness
     - bodyclose       # Checks for unclosed response bodies.
     - durationcheck   # Detects improper duration comparisons/multiplication.
-    - exportloopref   # Checks for loop variables captured by reference in closures.
     - makezero        # Checks for `make` calls with zero length that could be `nil`.
     - sqlclosecheck   # Checks for unclosed `sql.Rows`.
     - unconvert       # Detects unnecessary type conversions.

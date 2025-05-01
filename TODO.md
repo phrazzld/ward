@@ -46,7 +46,7 @@
     - **Done-when:** The `go:` version and `local-prefixes:` in `.golangci.yml` accurately reflect the project's `go.mod` file, and the configuration file is committed to the repository.
     - **Depends-on:** T040
 
-- [ ] **T042 · Chore · P2: Run golangci-lint to validate configuration and initial state**
+- [x] **T042 · Chore · P2: Run golangci-lint to validate configuration and initial state**
     - **Context:** Step 3 from `CONSULTANT-PLAN.md`. After creating and customizing the configuration, verify that the updated `golangci-lint` tool can parse the `.golangci.yml` file correctly and execute without configuration errors on the existing codebase.
     - **Action:** Navigate to the project root directory (`/Users/phaedrus/Development/ward/`) in the terminal and run `golangci-lint run ./...`.
     - **Done-when:** The command completes successfully (exit code 0) without reporting any configuration parsing errors (the `unsupported version` error must be resolved). Ideally, it reports no linting violations given the strict config and likely minimal codebase, but the primary goal here is config validation.
