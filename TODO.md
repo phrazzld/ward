@@ -64,7 +64,7 @@
     - **Done-when:** All golangci-lint configuration tasks are marked as completed.
     - **Depends-on:** T043
 
-- [ ] **T003 · Chore · P2: create Makefile for common tasks**
+- [x] **T003 · Chore · P2: create Makefile for common tasks**
     - **Context:** Detailed Build Step 1
     - **Action:**
         1. Add `Makefile` with targets: `lint`, `test`, `build`.
