@@ -180,7 +180,7 @@
     - **Depends-on:** T022
 
 ## internal/shim
-- [ ] **T009 · Chore · P2: define shim.Generator interface**
+- [x] **T009 · Chore · P2: define shim.Generator interface**
     - **Context:** Detailed Build Step 4
     - **Action:**
         1. Create `internal/shim/generator.go`.
